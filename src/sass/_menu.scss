@@ -1,0 +1,15 @@
+.menu {
+    max-height: 100px;
+    position: relative;
+    &__logo {
+        position: absolute;
+        top: 18px;
+        left: 530px;
+    }
+    &__warpper {
+        display: flex;
+    }
+    &__list {
+        flex: 0 1 auto;
+    }
+}
