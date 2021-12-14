@@ -1,5 +1,9 @@
 // DELETE _smoothness after build
-@import "./smoothness";
+@import "./delete/smoothness";
 
-@import "./start.scss";
+@import "./base/start.scss";
+@import "./base/container";
+@import "./base/variables";
+
 @import "./menu";
+@import "./burger";

@@ -33,7 +33,7 @@ body {
     height: 100%;
     width: 100%;
     font-size: 100%;
-    line-height: 1;
+    line-height: 150%;
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -83,9 +83,3 @@ h6 {
 }
 
 // ---------------------------
-
-.container {
-    max-width: 1140px;
-    margin: 0px auto;
-    padding: 0px 15px;
-}

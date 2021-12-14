@@ -1,15 +1,89 @@
 .menu {
-    max-height: 100px;
-    position: relative;
-    &__logo {
-        position: absolute;
-        top: 18px;
-        left: 530px;
-    }
-    &__warpper {
+    padding: 18px 0px 8px 0px;
+    height: 100px;
+    background: linear-gradient(0deg, #efebeb, #efebeb);
+
+    &__wrapper {
+        padding: 17px 100px;
         display: flex;
     }
-    &__list {
-        flex: 0 1 auto;
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        flex: 0 1 33.33333%;
+    }
+    &__burger {
+        display: none;
+    }
+    &__item {
+        color: $mainColor-blue;
+        cursor: pointer;
+        &:hover {
+            color: $mainColor-purple;
+        }
+    }
+    &__logo {
+        display: none;
+    }
+}
+
+.logo {
+    &__item {
+        margin: -22px auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .menu {
+        &__wrapper {
+            padding: 17px 0px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .menu {
+        &__wrapper {
+            display: none;
+        }
+        &__logo {
+            display: block;
+            margin: 0px 0px 0px 13px;
+        }
+        &__burger {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            padding: 100px 0px 0px 0px;
+            width: 416px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.81);
+        }
+        &__items {
+            display: block;
+            text-align: center;
+            font-size: 24px;
+        }
+        &__item {
+            &:not(:last-child) {
+                margin: 0px 0px 25px 0px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .menu {
+        &__burger {
+            width: 300px;
+        }
+    }
+}
+@media (max-width: 425px) {
+    .menu {
+        &__burger {
+            width: 200px;
+        }
     }
 }
