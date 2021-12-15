@@ -1,0 +1,24 @@
+.button {
+    padding: 10px 30px;
+    width: 198px;
+    height: 50px;
+    background: $mainColor-blue;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.27);
+    border-radius: 3px;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+    color: #ffffff;
+    @media (max-width: 768px) {
+        width: 186px;
+        height: 46px;
+        font-size: 18px;
+    }
+    @media (max-width: 576px) {
+        padding: 10px 15px;
+        width: 176px;
+        font-size: 16px;
+    }
+}
