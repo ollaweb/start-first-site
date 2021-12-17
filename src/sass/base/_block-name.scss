@@ -8,4 +8,7 @@
     text-align: center;
     position: relative;
     @include block-name_underline;
+    @media (max-width: 768px) {
+        font-size: 28px;
+    }
 }
