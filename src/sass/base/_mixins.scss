@@ -1,0 +1,13 @@
+@mixin block-name_underline {
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85px;
+        height: 2px;
+        border-radius: 3px;
+        background: $mainColor-purple;
+    }
+}

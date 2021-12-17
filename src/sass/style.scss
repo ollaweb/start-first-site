@@ -4,10 +4,13 @@
 @import "./base/start.scss";
 @import "./base/container";
 @import "./base/variables";
+@import "./base/mixins";
 @import "./base/button";
+@import "./base/block-name";
 
 @import "./menu";
 @import "./burger";
 
 @import "./promo";
 @import "./greeting";
+@import "./about";

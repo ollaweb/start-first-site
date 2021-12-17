@@ -1,8 +1,11 @@
 .block-name {
+    min-height: 60px;
     font-family: "PT Serif", serif;
     font-size: 32px;
     line-height: 150%;
     letter-spacing: 0.01em;
     color: $mainColor-purple;
     text-align: center;
+    position: relative;
+    @include block-name_underline;
 }
