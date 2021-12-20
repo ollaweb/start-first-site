@@ -1,0 +1,63 @@
+.skills {
+    padding: 70px 0px 50px 0px;
+    @media (max-width: 768px) {
+        padding: 40px 0px 40px 0px;
+    }
+    @media (max-width: 320px) {
+        padding: 30px 0px 40px 0px;
+    }
+    &__wrapper {
+        margin: 20px 0px 0px 0px;
+        display: flex;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @media (max-width: 768px) {
+            margin: 0;
+        }
+    }
+    &__item {
+        margin: 30px 0px 50px 0px;
+        padding: 0px 10px;
+        max-width: 350px;
+        flex: 1 1 33.33333%;
+        @media (max-width: 768px) {
+            flex: 1 1 50%;
+        }
+        @media (max-width: 576px) {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+.title-skills {
+    font-family: "PT Serif", serif;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0.01em;
+    color: $textColor;
+    position: relative;
+    @include skills-line_light;
+    @media (max-width: 768px) {
+        font-size: 20px;
+    }
+    &_html {
+        @include skills-line_dark(94.5%);
+    }
+    &_css {
+        @include skills-line_dark(91.5%);
+    }
+    &_js {
+        @include skills-line_dark(83.3%);
+    }
+    &_php {
+        @include skills-line_dark(16.6%);
+    }
+    &_gulp {
+        @include skills-line_dark(41.5%);
+    }
+    &_git {
+        @include skills-line_dark(29.3%);
+    }
+}
