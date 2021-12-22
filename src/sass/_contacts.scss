@@ -32,6 +32,9 @@
         line-height: 150%;
         text-align: center;
         color: $bgColor-darkPeach;
+        @media (max-width: 768px) {
+            font-size: 14px;
+        }
     }
     &__policy {
         margin: 15px 0px 0px 0px;
@@ -40,5 +43,8 @@
         text-align: center;
         text-decoration: underline;
         color: $mainColor-blue;
+        @media (max-width: 768px) {
+            font-size: 14px;
+        }
     }
 }

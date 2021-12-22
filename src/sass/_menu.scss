@@ -44,10 +44,11 @@
         }
     }
     &__item {
-        color: $mainColor-blue;
-        cursor: pointer;
-        &:hover {
-            color: $mainColor-purple;
+        & a {
+            color: $mainColor-blue;
+            &:hover {
+                color: $mainColor-purple;
+            }
         }
         @media (max-width: 768px) {
             &:not(:last-child) {
