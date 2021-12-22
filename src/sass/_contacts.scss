@@ -1,0 +1,44 @@
+.contacts {
+    padding: 70px 0px 50px 0px;
+    background: linear-gradient(
+        360deg,
+        rgba(238, 226, 220, 0.62) 1.54%,
+        #eee2dc 52.83%,
+        rgba(244, 237, 233, 0.12) 100%
+    );
+    @media (max-width: 768px) {
+        padding: 40px 0px 40px 0px;
+    }
+    @media (max-width: 320px) {
+        padding: 30px 0px 40px 0px;
+    }
+    &__descr {
+        margin: 50px 0px 0px 0px;
+        text-align: center;
+        color: $textColor;
+        @media (max-width: 768px) {
+            margin: 25px 0px 0px 0px;
+        }
+        & a {
+            text-decoration: underline;
+            color: $mainColor-purple;
+        }
+    }
+    &__form {
+        margin: 40px 0px;
+    }
+    &__submit-info {
+        font-size: 12px;
+        line-height: 150%;
+        text-align: center;
+        color: $bgColor-darkPeach;
+    }
+    &__policy {
+        margin: 15px 0px 0px 0px;
+        font-size: 12px;
+        line-height: 150%;
+        text-align: center;
+        text-decoration: underline;
+        color: $mainColor-blue;
+    }
+}
