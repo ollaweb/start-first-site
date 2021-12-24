@@ -29,6 +29,9 @@
                     font-size: 18px;
                 }
             }
+            &:focus {
+                border: 1px solid $mainColor-blue;
+            }
         }
         & textarea {
             height: 100%;
@@ -49,6 +52,9 @@
                 @media (max-width: 576px) {
                     font-size: 18px;
                 }
+            }
+            &:focus {
+                border: 1px solid $mainColor-blue;
             }
         }
     }

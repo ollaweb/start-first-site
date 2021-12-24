@@ -1,7 +1,6 @@
 .promo {
     min-height: 700px;
     background-color: #f2f0f0;
-    z-index: -2;
     overflow: hidden;
     @media (max-width: 768px) {
         min-height: 500px;
@@ -13,7 +12,6 @@
         position: relative;
     }
     &__bg {
-        z-index: -1;
         display: inline-block;
         position: absolute;
         width: 792px;
@@ -40,6 +38,8 @@
         }
     }
     &__body {
+        position: relative;
+        z-index: 5;
         padding: 205px 0px 272px 0px;
         max-width: 650px;
         @media (max-width: 768px) {
@@ -78,6 +78,7 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+
         @media (max-width: 768px) {
             flex-direction: column;
         }
