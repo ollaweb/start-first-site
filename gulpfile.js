@@ -7,7 +7,7 @@ const path = {
     src: {
         html: [srcPath + '/*.html', "!" + srcPath + '/_*.html'],
         css: srcPath + '/sass/*.scss',
-        js: srcPath + '/js/script.js',
+        js: srcPath + '/js/*.js',
         img: srcPath + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
         fonts: srcPath + '/fonts/**/*.{woff,woff2,ttf}',
     },
@@ -38,6 +38,9 @@ const autoprefixer = require('gulp-autoprefixer'); //add autoprefixers
 const groupMedia = require('gulp-group-css-media-queries'); //group all media together and at te end of the file
 const cleanCSS = require('gulp-clean-css');//clean from comments and create .min file
 const rename = require('gulp-rename');//save as any other name of file
+const babel = require('gulp-babel'); //use new format of js in old browsers
+const concat = require('gulp-concat'); //create all needed js files into 1
+const uglify = require('gulp-uglify-es').default; //js parser
 const del = require('del'); //delete files
 
 //Init BrowserSync
@@ -79,6 +82,14 @@ function css() {
 function js() {
     return src(path.src.js)
         .pipe(plumber())
+        // .pipe(babel())
+        .pipe(concat('script.js'))
+        .pipe(dest(path.build.js))
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".js"
+        }))
         .pipe(dest(path.build.js))
         .pipe(browserSync.stream())
 }
