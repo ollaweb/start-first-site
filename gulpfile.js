@@ -7,7 +7,7 @@ const path = {
     src: {
         html: [srcPath + '/*.html', "!" + srcPath + '/_*.html'],
         css: srcPath + '/sass/*.scss',
-        js: srcPath + '/js/*.js',
+        js: srcPath + '/js/**/*.js',
         img: srcPath + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
         fonts: srcPath + '/fonts/**/*.{woff,woff2,ttf}',
     },

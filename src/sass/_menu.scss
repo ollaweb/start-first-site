@@ -24,27 +24,32 @@
         }
     }
     &__burger {
+        transition: all 0.8s ease;
         display: none;
-        z-index: 30;
+        z-index: 5;
         @media (max-width: 768px) {
             position: absolute;
             top: 0;
-            right: 0;
+            right: -516px;
             display: block;
             padding: 100px 0px 0px 0px;
-            width: 416px;
+            width: 516px;
             height: 100vh;
             background: rgba(255, 255, 255, 0.81);
+            &_show {
+                right: 0;
+            }
         }
         @media (max-width: 576px) {
             width: 300px;
         }
-        @media (max-width: 451px) {
-            width: 200px;
-        }
     }
     &__item {
         & a {
+            padding: 10px 0px;
+            display: block;
+            width: 70%;
+            margin: 0 auto;
             color: $mainColor-blue;
             &:hover {
                 color: $mainColor-purple;
@@ -52,7 +57,7 @@
         }
         @media (max-width: 768px) {
             &:not(:last-child) {
-                margin: 0px 0px 25px 0px;
+                margin: 0px 0px 15px 0px;
             }
         }
         // @media (max-width: 451px) {

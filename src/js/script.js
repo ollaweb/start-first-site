@@ -1,9 +1,27 @@
-import slider from "./modules/slider";
-
 window.addEventListener("DOMContentLoaded", () => {
-    slider({
-        prev_arrow: ".slider__prev",
-        next_arrow: ".slider__next",
-        dots: ".slider__dot"
-    })
+
 });
+
+function burgerSwitch() {
+    const burger = document.querySelector(".burger");
+    const burgerItems = document.querySelector(".burger__items");
+    const menuBurger = document.querySelector(".menu__burger");
+    const menuItems = document.querySelector(".menu__items");
+
+    burger.addEventListener("click", () => {
+        menuBurger.classList.toggle("menu__burger_show");
+        burgerItems.classList.toggle("burger__items_opened");
+    });
+
+    menuItems.addEventListener("click", (event) => {
+        if (event.target == menuItems) {
+            menuBurger.classList.remove("menu__burger_show");
+            burgerItems.classList.remove("burger__items_opened");
+            console.log(event.target)
+        }
+        console.log(event.target)
+    });
+}
+
+
+burgerSwitch();
