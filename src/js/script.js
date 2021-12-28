@@ -38,6 +38,21 @@ function showArrowUp() {
     });
 }
 
+function slider() {
+    const prevArrow = document.querySelector(".slider__prev");
+    const nextArrow = document.querySelector(".slider__next");
+    const sliderDots = document.querySelectorAll(".slider__dot");
+    const sliderItem = document.querySelectorAll(".slider__item");
+
+
+
+    console.log(prevArrow);
+    console.log(nextArrow);
+    console.log(sliderDots);
+    console.log(sliderItem);
+}
+
 burgerSwitch();
 showArrowUp();
+slider();
 

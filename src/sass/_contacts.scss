@@ -42,9 +42,12 @@
         line-height: 150%;
         text-align: center;
         text-decoration: underline;
-        color: $mainColor-blue;
         @media (max-width: 768px) {
             font-size: 14px;
+        }
+        & a {
+            padding: 10px;
+            color: $mainColor-blue;
         }
     }
 }
