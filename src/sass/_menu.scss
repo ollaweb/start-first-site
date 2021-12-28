@@ -2,7 +2,9 @@
     padding: 18px 0px 8px 0px;
     height: 100px;
     background: linear-gradient(0deg, #efebeb, #efebeb);
-
+    &__container {
+        height: 100%;
+    }
     &__wrapper {
         padding: 17px 100px;
         display: flex;
@@ -24,19 +26,19 @@
         }
     }
     &__burger {
-        transition: all 0.8s ease;
-        display: none;
+        transition: all 0.7s ease;
+        visibility: hidden;
         z-index: 5;
         @media (max-width: 768px) {
-            position: absolute;
+            position: fixed;
             top: 0;
-            right: -516px;
-            display: block;
+            right: -100%;
             padding: 100px 0px 0px 0px;
             width: 516px;
             height: 100vh;
             background: rgba(255, 255, 255, 0.81);
             &_show {
+                visibility: visible;
                 right: 0;
             }
         }
@@ -48,7 +50,7 @@
         & a {
             padding: 10px 0px;
             display: block;
-            width: 70%;
+            width: 100%;
             margin: 0 auto;
             color: $mainColor-blue;
             &:hover {

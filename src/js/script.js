@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function burgerSwitch() {
+    const body = document.querySelector("body")
     const burger = document.querySelector(".burger");
     const burgerItems = document.querySelector(".burger__items");
     const menuBurger = document.querySelector(".menu__burger");
@@ -11,6 +12,7 @@ function burgerSwitch() {
     burger.addEventListener("click", () => {
         menuBurger.classList.toggle("menu__burger_show");
         burgerItems.classList.toggle("burger__items_opened");
+        body.classList.toggle("body-fixed");
     });
 
     menuItemsSmall.addEventListener("click", (event) => {
