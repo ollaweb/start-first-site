@@ -1,7 +1,90 @@
 .arrow-up {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 30px;
-    height: 30px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    z-index: 6;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s opacity, 0.5s visibility;
+    @media (min-width: 1800px) {
+        right: 10%;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        background-color: rgba(172, 59, 97, 0.5);
+    }
+
+    &__arrow {
+        width: 100%;
+        height: 100%;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 45%;
+            right: 43%;
+            height: 3px;
+            width: 14px;
+            background-color: #fff;
+            border-radius: 20px;
+            transform: rotate(-45deg);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 45%;
+            left: 43%;
+            height: 3px;
+            width: 14px;
+            background-color: #fff;
+            border-radius: 20px;
+            transform: rotate(45deg);
+        }
+    }
+
+    // &_left {
+    //     position: relative;
+    //     height: 100%;
+    //     width: 100%;
+    //     &::before {
+    //         content: "";
+    //         position: absolute;
+    //         top: 50%;
+    //         right: 0;
+    //         height: 3px;
+    //         width: 14px;
+    //         transform: translateX(-50%);
+    //         background-color: #fff;
+    //         border-radius: 20px;
+    //         transform: rotate(-45deg);
+    //     }
+    // }
+    // &_right {
+    //     position: relative;
+    //     height: 100%;
+    //     width: 100%;
+    //     &::before {
+    //         content: "";
+    //         position: absolute;
+    //         top: 50%;
+    //         left: 50%;
+    //         height: 3px;
+    //         width: 14px;
+    //         background-color: #fff;
+    //         border-radius: 20px;
+    //         transform: rotate(45deg);
+    //     }
+    // }
+}
+
+.arrow-up_active {
+    visibility: visible;
+    opacity: 1;
 }

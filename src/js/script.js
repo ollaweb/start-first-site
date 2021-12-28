@@ -24,5 +24,20 @@ function burgerSwitch() {
     });
 }
 
+function showArrowUp() {
+    const arrowBlock = document.querySelector(".arrow-up");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY >= 800 && window.innerWidth > 768) {
+            arrowBlock.classList.add("arrow-up_active");
+        } else if (window.scrollY >= 600 && window.innerWidth <= 768) {
+            arrowBlock.classList.add("arrow-up_active");
+        } else {
+            arrowBlock.classList.remove("arrow-up_active");
+        }
+
+    });
+}
+
 burgerSwitch();
+showArrowUp();
 
