@@ -36,11 +36,12 @@
                     transform: rotate(45deg);
                     margin: 0px 0px 0px 0px;
                     position: relative;
-                    top: 2px;
+                    top: 7px;
                 }
                 &:last-child {
                     transform: rotate(-45deg);
                     position: relative;
+                    top: 5px;
                 }
             }
         }
