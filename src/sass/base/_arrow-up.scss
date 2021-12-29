@@ -8,6 +8,10 @@
     visibility: hidden;
     opacity: 0;
     transition: 0.5s opacity, 0.5s visibility;
+    &._active {
+        visibility: visible;
+        opacity: 1;
+    }
     @media (min-width: 1800px) {
         right: 10%;
     }
@@ -48,43 +52,4 @@
             transform: rotate(45deg);
         }
     }
-
-    // &_left {
-    //     position: relative;
-    //     height: 100%;
-    //     width: 100%;
-    //     &::before {
-    //         content: "";
-    //         position: absolute;
-    //         top: 50%;
-    //         right: 0;
-    //         height: 3px;
-    //         width: 14px;
-    //         transform: translateX(-50%);
-    //         background-color: #fff;
-    //         border-radius: 20px;
-    //         transform: rotate(-45deg);
-    //     }
-    // }
-    // &_right {
-    //     position: relative;
-    //     height: 100%;
-    //     width: 100%;
-    //     &::before {
-    //         content: "";
-    //         position: absolute;
-    //         top: 50%;
-    //         left: 50%;
-    //         height: 3px;
-    //         width: 14px;
-    //         background-color: #fff;
-    //         border-radius: 20px;
-    //         transform: rotate(45deg);
-    //     }
-    // }
-}
-
-.arrow-up_active {
-    visibility: visible;
-    opacity: 1;
 }

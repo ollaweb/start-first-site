@@ -2,57 +2,67 @@ window.addEventListener("DOMContentLoaded", () => {
 
 });
 
+//================== Меню бургер =========================
+
+/*
+Настройка меню бургер (открытие/закрытие при нажатии на бургер;
+закрытие при переходе по ссылке меню)
+*/
+
+const body = document.querySelector("body")
+const burger = document.querySelector(".burger");
+const burgerItems = document.querySelector(".burger__items");
+const menuBurger = document.querySelector(".menu-burger");
+
 function burgerSwitch() {
-    const body = document.querySelector("body")
-    const burger = document.querySelector(".burger");
-    const burgerItems = document.querySelector(".burger__items");
-    const menuBurger = document.querySelector(".menu__burger");
-    const menuItemsSmall = document.querySelector(".menu__items_small");
-
-    burger.addEventListener("click", () => {
-        menuBurger.classList.toggle("menu__burger_show");
-        burgerItems.classList.toggle("burger__items_opened");
-        body.classList.toggle("body-fixed");
-    });
-
-    menuItemsSmall.addEventListener("click", (event) => {
-        // if (event.target == menuItems) {
-        menuBurger.classList.remove("menu__burger_show");
-        burgerItems.classList.remove("burger__items_opened");
-        // }
-        console.log(event.target);
-    });
+    menuBurger.classList.toggle("_opened");
+    burgerItems.classList.toggle("_opened");
+    body.classList.toggle("_lock");
 }
 
-function showArrowUp() {
-    const arrowBlock = document.querySelector(".arrow-up");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY >= 800 && window.innerWidth > 768) {
-            arrowBlock.classList.add("arrow-up_active");
-        } else if (window.scrollY >= 600 && window.innerWidth <= 768) {
-            arrowBlock.classList.add("arrow-up_active");
-        } else {
-            arrowBlock.classList.remove("arrow-up_active");
-        }
+burger.addEventListener("click", () => {
+    burgerSwitch();
+});
+
+
+const menuItemsLink = document.querySelectorAll(".menu-burger__item");
+
+menuItemsLink.forEach(item => {
+    const link = item.querySelector("a");
+    link.addEventListener("click", (e) => {
+        e.stopPropagation();
+        burgerSwitch();
 
     });
-}
+});
 
-function slider() {
-    const prevArrow = document.querySelector(".slider__prev");
-    const nextArrow = document.querySelector(".slider__next");
-    const sliderDots = document.querySelectorAll(".slider__dot");
-    const sliderItem = document.querySelectorAll(".slider__item");
+const layout = document.querySelector(".menu__layout");
+document.addEventListener("click", (e) => {
+    console.log(e.target);
+    if (e.target === layout && menuBurger.classList.contains("_opened")) {
+        burgerSwitch();
+    }
+});
 
 
 
-    console.log(prevArrow);
-    console.log(nextArrow);
-    console.log(sliderDots);
-    console.log(sliderItem);
-}
+// ================= Стрелка наверх ========================
 
-burgerSwitch();
-showArrowUp();
-slider();
+/*
+Появление стрелки вверх для прокрутки при скролле вниз на 800 на desktop;
+при скроле вниз на 600 на планшете и мобильном телфоне
+*/
 
+const arrowBlock = document.querySelector(".arrow-up");
+window.addEventListener("scroll", () => {
+    if (window.scrollY >= 800 && window.innerWidth > 768) {
+        arrowBlock.classList.add("_active");
+    } else if (window.scrollY >= 600 && window.innerWidth <= 768) {
+        arrowBlock.classList.add("_active");
+    } else {
+        arrowBlock.classList.remove("_active");
+    }
+
+});
+
+// ================= Слайдер ===============================

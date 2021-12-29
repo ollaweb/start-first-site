@@ -86,8 +86,7 @@ body {
     font-size: 20px;
     font-weight: 400;
     line-height: 150%;
-}
-
-.body-fixed {
-    position: fixed;
+    &._lock {
+        overflow: hidden;
+    }
 }
