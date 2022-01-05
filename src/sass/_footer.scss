@@ -5,6 +5,7 @@
         // display: grid;
         // grid-template-columns: minmax(auto, 255px) minmax(auto, 600px) minmax(auto, 255px);
         display: flex;
+        justify-content: space-between;
         @media (max-width: 768px) {
             justify-content: space-between;
         }
@@ -29,7 +30,7 @@
         }
     }
     &__items {
-        margin: 0px auto;
+        // margin: 0px auto;
         display: grid;
         grid-template-columns: repeat(4, minmax(45px, auto));
         align-items: center;

@@ -8,25 +8,21 @@
     }
     &__wrapper {
         margin: 20px 0px 0px 0px;
-        display: flex;
-        text-align: center;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
         @media (max-width: 768px) {
             margin: 0;
+            grid-template-columns: 1fr;
         }
     }
     &__item {
         margin: 30px 0px 50px 0px;
         padding: 0px 10px;
-        max-width: 350px;
-        flex: 1 1 33.33333%;
+        // max-width: 350px;
+        text-align: center;
         @media (max-width: 768px) {
-            flex: 1 1 50%;
-        }
-        @media (max-width: 576px) {
-            flex: 1 1 100%;
-            max-width: 100%;
+            // max-width: 100%;
         }
     }
 }
@@ -43,13 +39,19 @@
         font-size: 20px;
     }
     &_html {
-        @include skills-line_dark(94.5%);
+        @include skills-line_dark(75%);
     }
     &_css {
-        @include skills-line_dark(91.5%);
+        @include skills-line_dark(68%);
     }
     &_js {
-        @include skills-line_dark(83.3%);
+        @include skills-line_dark(20%);
+    }
+    &_figma {
+        @include skills-line_dark(60%);
+    }
+    &_ps {
+        @include skills-line_dark(60%);
     }
     &_php {
         @include skills-line_dark(16.6%);
