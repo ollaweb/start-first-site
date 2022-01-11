@@ -1,6 +1,6 @@
 .promo {
-    min-height: 700px;
-    background-color: #f2f0f0;
+    // min-height: 700px;
+    background-color: $color-darkPurple;
     overflow: hidden;
     position: relative;
     &__bg {
@@ -9,18 +9,13 @@
         height: 100%;
         top: 0;
         left: 0;
-        object-fit: none;
-        @media (max-width: 1440px) {
-            transform: translateX(-250px);
-        }
-        @media (max-width: 1024px) {
-            transform: translateX(-58%);
-        }
         @media (max-width: 992px) {
-            transform: translateX(-65%);
+            opacity: 0.7;
         }
-        @media (max-width: 768px) {
-            transform: translateX(-95%);
+        & img {
+            @media (max-width: 1300px) {
+                object-position: 80%;
+            }
         }
     }
 
@@ -31,6 +26,7 @@
         min-height: 370px;
     }
     &__body {
+        margin: 0px 20px;
         position: relative;
         z-index: 1;
         padding: 205px 0px 272px 0px;
@@ -45,8 +41,8 @@
         }
     }
     &__title {
-        font-family: "PT Serif", serif;
-        font-weight: bold;
+        font-family: "Source Serif Pro", serif;
+        font-weight: 600;
         font-size: 48px;
         letter-spacing: 0.01em;
         line-height: 150%;

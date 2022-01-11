@@ -14,9 +14,9 @@ const menuBurger = document.querySelector(".menu");
 function burgerSwitch() {
     menuBurger.classList.toggle("_opened");
     burgerItems.classList.toggle("_opened");
-    if (window.innerWidth <= 768) {
-        body.classList.toggle("_lock");
-    }
+    // if (window.innerWidth <= 768) {
+    //     body.classList.toggle("_lock");
+    // }
 
 }
 
