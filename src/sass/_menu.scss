@@ -1,50 +1,61 @@
 .menu {
-    padding: 18px 0px 8px 0px;
+    padding: 25px 0px;
     height: 100px;
-    background: linear-gradient(0deg, #efebeb, #efebeb);
+    @media (max-width: 768px) {
+        height: 80px;
+    }
     &__container {
         height: 100%;
     }
-    &__wrapper {
-        padding: 17px 100px;
-        display: flex;
-        @media (max-width: 992px) {
-            padding: 17px 0px;
-        }
-        @media (max-width: 768px) {
-            display: none;
-        }
-    }
+
     &__items {
         display: flex;
-        justify-content: space-between;
-        flex: 0 1 33.33333%;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0px 35px 0px 0px;
         @media (max-width: 768px) {
-            display: block;
-            text-align: center;
-            font-size: 24px;
+            z-index: 5;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 80px 0px 0px 0px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 512px;
+            height: 100vh;
+            background-color: $color-white;
         }
     }
     &__item {
+        position: relative;
+        transition: 0.5 all ease;
+        padding: 10px 17px;
+        &:not(:first-child) {
+            margin: 0px 0px 0px 2px;
+        }
+        &:hover {
+            @include menu-hover;
+        }
+        @media (max-width: 768px) {
+            padding: 15px 0px;
+            &:not(:last-child) {
+                margin: 0px 0px 15px 0px;
+            }
+        }
         & a {
-            padding: 10px 0px;
-            display: block;
-            width: 100%;
-            margin: 0 auto;
-            color: $mainColor-blue;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            color: $color-darkPurple;
+            cursor: pointer;
             &:hover {
-                color: $mainColor-purple;
+                color: $color-white;
+            }
+            @media (max-width: 768px) {
+                padding: 15px 150px;
             }
         }
     }
-    &__logo {
-        display: none;
-        @media (max-width: 768px) {
-            display: block;
-            margin: 0px 0px 0px 13px;
-        }
-    }
-
     &__layout {
         z-index: 4;
         position: absolute;
@@ -52,11 +63,5 @@
         left: 0;
         width: 100%;
         height: 100vh;
-    }
-}
-
-.logo {
-    &__item {
-        margin: -22px auto;
     }
 }

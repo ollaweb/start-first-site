@@ -1,5 +1,5 @@
 .about {
-    padding: 70px 0px 50px 0px;
+    padding: 20px 0px 50px;
     @media (max-width: 768px) {
         padding: 40px 0px 40px 0px;
     }
@@ -27,9 +27,11 @@
         }
     }
     &__text {
+        background-color: $color-orange;
+        margin: 0px 0px 0px 30px;
         flex: 1 1 50%;
-        padding: 0px 0px 0px 110px;
-        color: $textColor;
+        padding: 25px 47px;
+        color: $color-white;
         @media (max-width: 1200px) {
             padding: 0px 0px 0px 30px;
         }

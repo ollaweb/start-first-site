@@ -14,10 +14,6 @@
     }
     &__button {
         display: block;
-        width: 241px;
         margin: 40px auto 0;
-        @media (max-width: 768px) {
-            width: 223px;
-        }
     }
 }

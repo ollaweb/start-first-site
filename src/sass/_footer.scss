@@ -1,5 +1,5 @@
 .footer {
-    background: $bgColor-mainBeige;
+    background: $color-ligthBrown;
     padding: 25px 0px;
     &__wrapper {
         // display: grid;
@@ -26,7 +26,7 @@
         }
         & a {
             padding: 10px 5px;
-            color: $textColor;
+            color: $color-darkPurple;
         }
     }
     &__items {
@@ -36,7 +36,7 @@
         align-items: center;
         gap: 50px;
         @media (max-width: 768px) {
-            colomn-gap: 50px;
+            column-gap: 50px;
             row-gap: 20px;
             grid-template-columns: repeat(2, minmax(45px, auto));
             margin: 0;
@@ -57,7 +57,7 @@
             }
         }
         & a {
-            color: $textColor;
+            color: $color-darkPurple;
         }
     }
 
@@ -77,7 +77,7 @@
         font-size: 14px;
         line-height: 150%;
         & a {
-            color: $textColor;
+            color: $color-darkPurple;
         }
         @media (max-width: 768px) {
             font-size: 18px;

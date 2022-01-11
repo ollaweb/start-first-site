@@ -49,22 +49,4 @@
         display: flex;
         justify-content: space-between;
     }
-    &__dot {
-        position: relative;
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 10px;
-            height: 10px;
-            background-color: $bgColor-lightGray;
-            border-radius: 100%;
-        }
-        &._active {
-            &::before {
-                background-color: $bgColor-mainGray;
-            }
-        }
-    }
 }

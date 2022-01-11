@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap&subset=cyrillic-ext">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap&subset=cyrillic-ext">
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap&subset=cyrillic-ext">
 
     <link rel="stylesheet" href="./css/style.min.css">
 
@@ -18,25 +16,21 @@
 <body>
     <nav class="menu">
         <div class="menu__container container">
-            <div class="menu__wrapper">
-                <ul class="menu__items menu__items_left">
-                    <li class="menu__item">
-                        <a href="#about">Обо мне</a>
-                    </li>
-                    <li class="menu__item"><a href="#skills">Навыки</a> </li>
-                </ul>
-                <div class="menu__items logo">
-                    <div class="logo__item">
-                        <a href="./index.html">
-                            <img src="./img/logo.png" alt="logo">
-                        </a>
-                    </div>
-                </div>
-                <ul class="menu__items menu__items_right">
-                    <li class="menu__item"><a href="#portfolio">Портфолио</a> </li>
-                    <li class="menu__item"><a href="#contacts">Контакты</a></li>
-                </ul>
-            </div>
+            <!-- <div class="menu__layout"></div> -->
+            <ul class="menu__items">
+                <li class="menu__item">
+                    <a href="#about">Обо мне</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#skills">Навыки</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#portfolio">Портфолио</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#footer">Контакты</a>
+                </li>
+            </ul>
             <div class="burger">
                 <div class="burger__wrapper">
                     <div class="burger__items">
@@ -46,23 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="menu__logo">
-                <a href="#">
-                    <img src="./img/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="menu__layout"></div>
-            <div class="menu-burger">
-                <div class="menu-burger__content">
-                    <ul class="menu-burger__items">
-                        <li class="menu-burger__item"><a href="#about">Обо мне</a></li>
-                        <li class="menu-burger__item"><a href="#skills">Навыки</a></li>
-                        <li class="menu-burger__item"><a href="#portfolio">Портфолио</a></li>
-                        <li class="menu-burger__item"><a href="#contacts">Контакты</a></li>
-                    </ul>
-                </div>
 
-            </div>
         </div>
     </nav>
     <a href="#" class="arrow-up">
@@ -75,7 +53,8 @@
                 <h2 class="promo__descr">Вёрстка адаптивных, кроссбраузерных сайтов</h2>
                 <div class="promo__contacts">
                     <a href="#contacts">
-                        <button class="promo__button button">Напишите мне</button>
+                        <button class="promo__button button">
+                            <a href="mailto: ollabradford@gmail.com"></a>Напишите мне</a> </button>
                     </a>
                     <div class="promo__icon">
                         <a href="https://github.com/ollaweb" target="_blank">
@@ -84,9 +63,9 @@
                     </div>
                 </div>
             </div>
-            <div class="promo__bg">
-                <img src="./img/promo_bg.png" alt="A girl taping at the laptop">
-            </div>
+        </div>
+        <div class="promo__bg">
+            <img src="./img/promo_bg.jpg" alt="Background: a flower and a lamp on the table">
         </div>
     </section>
     <section class="greeting">
@@ -212,7 +191,7 @@
                     данных</a> </div>
         </div>
     </section> -->
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="footer__container container">
             <div class="footer__wrapper">
                 <!-- <div class="footer__policy"><a href="./policy.html">Политика в отношении обработки персональных
@@ -227,14 +206,11 @@
                     <li class="footer__item">
                         <a href="#portfolio">Портфолио</a>
                     </li>
-                    <li class="footer__item">
-                        <a href="#contacts">Контакты</a>
-                    </li>
                 </ul>
                 <div class="footer__contacts">
                     <div class="footer__github">
                         <a href="https://github.com/ollaweb" target="_blank">
-                            <img src="./img/icons/github.svg" alt="github icon">
+                            <img src="./img/icons/github-dark.svg" alt="github icon">
                         </a>
                     </div>
                     <div class="footer__email">

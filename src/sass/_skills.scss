@@ -32,7 +32,7 @@
     font-size: 24px;
     line-height: 150%;
     letter-spacing: 0.01em;
-    color: $textColor;
+    color: $color-purple;
     position: relative;
     @include skills-line_light;
     @media (max-width: 768px) {
