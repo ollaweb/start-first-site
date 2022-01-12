@@ -36,15 +36,6 @@ menuItemsLink.forEach(item => {
     });
 });
 
-const layout = document.querySelector(".menu__layout");
-document.addEventListener("click", (e) => {
-    if (e.target === layout && menuBurger.classList.contains("_opened")) {
-        burgerSwitch();
-    }
-});
-
-
-
 // ================= Стрелка наверх ========================
 
 /*
@@ -64,75 +55,28 @@ window.addEventListener("scroll", () => {
 
 });
 
-// ================= Слайдер центральный ===============================
-
-const ribbon = document.querySelector(".slider__ribbon");
-const view = document.querySelector(".slider__view");
-const imgArray = document.querySelectorAll(".slider__img");
-const imgCount = imgArray.length;
-const prevButton = document.querySelector(".slider__prev");
-const nextButton = document.querySelector(".slider__next");
-// const dotsBlock = document.querySelector(".slider__dots");
-let index = 0;
-
-//Начальная настройка слайдера
-
-//индекс центрального элемента
-// let index = (imgCount - 1) / 2;
-
-//Вставляем количество точек на страницу в зависимости от количества картинок в слайдере
-// for (let i = 0; i < imgCount; i++) {
-//     dotsBlock.insertAdjacentHTML('beforeend', '<div class="slider__dot"></div>');
-// }
-
-//Получаем массив отрисованных точек
-// const dots = document.querySelectorAll(".slider__dot");
-
-//Добавляем классы активности к центральной картинке и точке
-// imgArray[index].classList.add("_focus");
-
-
-//Ширина и отступы картинок
-const imgWidth = 300;
-const imgGap = 30;
-
-//Настройка всех картинок слайдера
-imgArray.forEach(img => {
-    img.style.width = String(imgWidth) + "px";
-    img.style.marginLeft = String(imgGap / 2) + "px";
-    img.style.marginRight = String(imgGap / 2) + "px";
-});
-
-//Настройка ленты слайдера
-ribbon.style.paddingLeft = String(imgGap / 2) + "px";
-ribbon.style.paddingRight = String(imgGap / 2) + "px";
-
-//Настройка области видимости слайдера (через какое окошко видна лента)
-view.style.width = String(imgWidth * 3 + imgGap * 4) + "px";
-
-//Функция по перелистыванию картинок
-function slide() {
-    ribbon.style.transform = `translateX(-${(index) * (imgWidth + imgGap)}px)`;
-}
-//Настроить центральную картинку по центру
-slide();
-
-//Обработчик книпки назад
-prevButton.addEventListener("click", () => {
-    if (index == 0) {
-        index = imgCount - 3;
-    } else {
-        index--;
-    }
-    slide();
-});
-
-//Обработчик книпки вперед
-nextButton.addEventListener("click", () => {
-    if (index == imgCount - 3) {
-        index = 0;
-    } else {
-        index++;
-    }
-    slide();
+// ================= slick-slider ===============================
+$(document).ready(function () {
+    $('.slider').slick({
+        dots: true,
+        slidesToShow: 3,
+        speed: 700,
+        draggable: false,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    // dots: false,
+                    arrows: false,
+                }
+            },
+        ]
+    });
 });

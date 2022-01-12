@@ -1,52 +1,82 @@
-.slider {
-    padding: 0px 7px;
+/* Ограничивающая оболочка */
+.slick-list {
+    overflow: hidden;
+}
+/* Лента слайдов */
+.slick-track {
     display: flex;
+    column-gap: 22px;
+    justify-content: center;
     align-items: center;
-    &__prev {
-        cursor: pointer;
+    @media (max-width: 768px) {
+        column-gap: 0;
     }
-    &__next {
-        cursor: pointer;
+}
+/* Точки (булиты) */
+.slick-dots {
+    margin: 25px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    & li {
+        list-style: none;
+        width: 10px;
+        height: 10px;
+        // background-color: $color-purple;
+        border: 2px solid $color-purple;
+        border-radius: 100%;
+        &:not(:last-child) {
+            margin: 0px 10px 0px 0px;
+        }
+        &.slick-active {
+            background-color: $color-purple;
+        }
+        & button {
+            font-size: 0;
+        }
     }
-    &__view {
-        margin: 0px auto;
-        overflow: hidden;
+}
+
+//Слайдер сайта
+.slider {
+    position: relative;
+    padding: 0px 60px;
+    @media (max-width: 768px) {
+        padding: 0;
     }
-    &__ribbon {
-        padding: 10px 0px;
-        display: inline-flex;
-        transition: 0.5s all ease;
-        align-items: center;
+    & .slick-list {
+        margin: 65px 0px 0px 0px;
+    }
+    & .slick-arrow {
+        position: absolute;
+        top: 50%;
+        margin: -24px 0px 0px 0px;
+
+        font-size: 0;
+        z-index: 10;
+        width: 36px;
+        height: 48px;
+        &.slick-prev {
+            left: 0;
+            margin-left: 7px;
+            background: url("../../img/icons/arrow-prev.svg") 0 0 /100% no-repeat;
+        }
+        &.slick-next {
+            right: 0;
+            margin-right: 7px;
+            background: url("../../img/icons/arrow-next.svg") 0 0 /100% no-repeat;
+        }
     }
     &__img {
+        position: relative;
+        width: 300px;
         height: 300px;
         & img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        &._focus {
-            height: 350px;
-        }
-        // @media (max-width: 992px) {
-        //     width: 100%;
-        //     height: 350px;
-        //     &:not(:first-child) {
-        //         display: none;
-        //     }
-        // }
-        // @media (max-width: 576px) {
-        //     height: 250px;
-        // }
-        // &:hover {
-        //     box-shadow: 0px 4px 6px 4px rgba(0, 0, 0, 0.2);
-        //     height: 350px;
-        // }
-    }
-    &__dots {
-        margin: 25px auto 55px;
-        max-width: 90px;
-        display: flex;
-        justify-content: space-between;
     }
 }

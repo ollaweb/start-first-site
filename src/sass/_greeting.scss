@@ -6,8 +6,8 @@
     }
     &__wrapper {
         padding: 19px 15px 16px;
-        background-color: $color-darkPurple;
-        box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+        background-color: $color-white;
+        // box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
         border-radius: 3px;
     }
     &__title {
@@ -17,14 +17,14 @@
         font-weight: 600;
         line-height: 150%;
         letter-spacing: 0.01em;
-        color: $color-white;
+        color: $color-darkPurple;
         @media (max-width: 768px) {
             font-size: 24px;
         }
     }
     &__text {
         line-height: 200%;
-        color: $color-white;
+        color: $color-darkPurple;
         & a {
             font-family: "Source Serif Pro", serif;
             font-size: 24px;
