@@ -63,6 +63,12 @@
             font-size: 18px;
         }
     }
+    &__button {
+        & a {
+            font-weight: 600;
+            color: #f7f5f5;
+        }
+    }
     &__contacts {
         display: flex;
         align-items: center;
