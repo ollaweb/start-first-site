@@ -9,14 +9,16 @@
 const body = document.querySelector("body")
 const burger = document.querySelector(".burger");
 const burgerItems = document.querySelector(".burger__items");
-const menuBurger = document.querySelector(".menu");
+const menuAside = document.querySelector(".menu__items");
+const menu = document.querySelector(".menu");
+
 
 function burgerSwitch() {
-    menuBurger.classList.toggle("_opened");
-    burgerItems.classList.toggle("_opened");
-    // if (window.innerWidth <= 768) {
-    //     body.classList.toggle("_lock");
-    // }
+    if (window.innerWidth <= 768) {
+        menuAside.classList.toggle("_opened");
+        burgerItems.classList.toggle("_opened");
+        body.classList.toggle("_lock");
+    }
 
 }
 

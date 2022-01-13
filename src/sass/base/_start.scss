@@ -86,9 +86,12 @@ body {
     font-size: 20px;
     font-weight: 400;
     line-height: 150%;
-    &._lock {
-        overflow: hidden;
+    @media (max-width: 768px) {
+        &._lock {
+            overflow: hidden;
+        }
     }
+
     background-color: #f7f5f5;
 }
 
