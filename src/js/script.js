@@ -83,9 +83,10 @@ $(document).ready(function () {
     $('.slider').slick({
         dots: true,
         slidesToShow: 3,
-        speed: 500,
+        speed: 400,
         draggable: false,
         touchThreshold: 25,
+        cssEase: "ease-out",
         responsive: [
             {
                 breakpoint: 992,
