@@ -62,20 +62,23 @@ $(document).ready(function () {
     $('.slider').slick({
         dots: true,
         slidesToShow: 3,
-        speed: 700,
+        speed: 500,
         draggable: false,
+        touchThreshold: 25,
         responsive: [
             {
                 breakpoint: 992,
                 settings: {
                     slidesToShow: 2,
+                    slidesToScroll: 2,
+                    touchThreshold: 45,
+
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
-                    // dots: false,
                     arrows: false,
                 }
             },
