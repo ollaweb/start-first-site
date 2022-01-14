@@ -57,6 +57,27 @@ window.addEventListener("scroll", () => {
 
 });
 
+//Плавный скролл наверх
+$('a[href^="#"').on('click', function () {
+
+    let href = $(this).attr('href');
+
+    if (href == "#up") {
+        $('html, body').animate({
+            scrollTop: $(href).offset().top
+        }, {
+            duration: 400,
+        });
+    } else {
+        $('html, body').animate({
+            scrollTop: $(href).offset().top
+        }, {
+            duration: 700,
+        });
+    }
+    return false;
+});
+
 // ================= slick-slider ===============================
 $(document).ready(function () {
     $('.slider').slick({
