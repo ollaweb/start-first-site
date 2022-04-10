@@ -1,6 +1,9 @@
 .footer {
     background: $color-ligthBrown;
-    padding: 30px 0px;
+    padding: 30px 0px 50px;
+    @media (min-width: 576px) {
+        padding: 30px 0px;
+    }
     &__wrapper {
         margin: 0px 20px;
         display: flex;
@@ -68,6 +71,7 @@
         margin: 11px 0px 0px 0px;
         font-size: 14px;
         line-height: 150%;
+        text-decoration: underline;
         & a {
             color: $color-darkPurple;
         }

@@ -36,27 +36,27 @@
         font-size: 20px;
     }
     &_html {
-        @include skills-line_dark(75%);
+        @include skills-line_dark(85%);
     }
     &_css {
-        @include skills-line_dark(68%);
+        @include skills-line_dark(80%);
     }
     &_js {
-        @include skills-line_dark(25%);
+        @include skills-line_dark(55%);
     }
     &_figma {
-        @include skills-line_dark(60%);
+        @include skills-line_dark(80%);
     }
     &_ps {
         @include skills-line_dark(60%);
     }
     &_php {
-        @include skills-line_dark(16.6%);
+        @include skills-line_dark(15%);
     }
     &_gulp {
-        @include skills-line_dark(41.5%);
+        @include skills-line_dark(65%);
     }
     &_git {
-        @include skills-line_dark(29.3%);
+        @include skills-line_dark(45%);
     }
 }

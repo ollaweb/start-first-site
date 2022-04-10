@@ -1,22 +1,25 @@
 "use strict"
 
-//Project path settings
+//Папка исходнико в папка назначения
 const srcPath = 'src';
-const buildPath = 'build';
+const buildPath = 'dist';
+
 const path = {
     src: {
         html: [srcPath + '/*.html', "!" + srcPath + '/_*.html'],
         css: srcPath + '/sass/*.scss',
         js: srcPath + '/js/**/*.js',
         img: srcPath + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
-        fonts: srcPath + '/fonts/**/*.{woff,woff2,ttf}',
+        fonts: srcPath + '/fonts/**/*.{woff,woff2,ttf,eot,svg,otf}',
+        php: srcPath + '/*.php',
     },
     watch: {
         html: srcPath + '/**/*.html',
         css: srcPath + '/sass/**/*.scss',
         js: srcPath + '/js/**/*.js',
         img: srcPath + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
-        fonts: srcPath + '/fonts/**/*.{woff,woff2,ttf}',
+        fonts: srcPath + '/fonts/**/*.{woff,woff2,ttf,eot,svg,otf}',
+        php: srcPath + '/**/*.php',
     },
     build: {
         html: buildPath + '/',
@@ -24,11 +27,12 @@ const path = {
         js: buildPath + '/js',
         img: buildPath + '/img',
         fonts: buildPath + '/fonts',
+        php: buildPath + '/',
     },
     clean: './' + buildPath,
 }
 
-//Use gulp & gulp plugins
+//getting plugins
 const { src, dest, parallel, series, watch } = require('gulp');
 const browserSync = require('browser-sync').create();//upload html in browser
 const plumber = require('gulp-plumber'); //catch errors
@@ -38,21 +42,29 @@ const autoprefixer = require('gulp-autoprefixer'); //add autoprefixers
 const groupMedia = require('gulp-group-css-media-queries'); //group all media together and at te end of the file
 const cleanCSS = require('gulp-clean-css');//clean from comments and create .min file
 const rename = require('gulp-rename');//save as any other name of file
-const babel = require('gulp-babel'); //use new format of js in old browsers
-const concat = require('gulp-concat'); //create all needed js files into 1
-const uglify = require('gulp-uglify-es').default; //js parser
+
+const imagemin = require('gulp-imagemin');//makes img sizes smaller
+
+// const babel = require('gulp-babel'); //use new format of js in old browsers
+// const concat = require('gulp-concat'); //create all needed js files into 1
+// const uglify = require('gulp-uglify-es').default; //js parser
 const del = require('del'); //delete files
+const webpack = require('webpack-stream');
+const TerserPlugin = require("terser-webpack-plugin");
 
 //Init BrowserSync
 function sync() {
     browserSync.init({
         server: {
-            baseDir: './' + buildPath + '/'
+            baseDir: './' + buildPath + '/',
+            serveStaticOptions: { //for multi-pages sites
+                extensions: ["html"]
+            }
         }
     });
 }
 
-//Build html into /build folder
+//Copy html in dist directory
 function html() {
     return src(path.src.html)
         .pipe(plumber())
@@ -61,7 +73,7 @@ function html() {
         .pipe(browserSync.stream())
 }
 
-//Build css from scss
+//Making css from scss and clean and minify it
 function css() {
     return src(path.src.css)
         .pipe(plumber())
@@ -78,25 +90,76 @@ function css() {
         .pipe(browserSync.stream())
 }
 
-//Build js
+//Put all JS modules into 1 file (DEVELOPER mode)
 function js() {
     return src(path.src.js)
-        .pipe(plumber())
-        // .pipe(babel())
-        .pipe(concat('script.js'))
-        .pipe(dest(path.build.js))
-        .pipe(uglify())
-        .pipe(rename({
-            suffix: ".min",
-            extname: ".js"
+        .pipe(webpack({
+            mode: 'development',
+            output: {
+                filename: 'bundle.js'
+            },
+            watch: false,
+            devtool: "source-map",
+            module: {
+                rules: [
+                    {
+                        test: /\.m?js$/,
+                        exclude: /(node_modules|bower_components)/,
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: [['@babel/preset-env', {
+                                    debug: true,
+                                    corejs: 3,
+                                    useBuiltIns: "usage"
+                                }]]
+                            }
+                        }
+                    }
+                ]
+            }
         }))
         .pipe(dest(path.build.js))
         .pipe(browserSync.stream())
 }
 
-//Build img 
+//PRODUCTION mode (also minifying the file)
+function js_production() {
+    return src(path.src.js)
+        .pipe(webpack({
+            mode: 'production',
+            output: {
+                filename: 'bundle.min.js'
+            },
+            module: {
+                rules: [
+                    {
+                        test: /\.m?js$/,
+                        exclude: /(node_modules|bower_components)/,
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: [['@babel/preset-env', {
+                                    corejs: 3,
+                                    useBuiltIns: "usage"
+                                }]]
+                            }
+                        }
+                    }
+                ]
+            },
+            optimization: {
+                minimize: true,
+                minimizer: [new TerserPlugin()],
+            },
+        }))
+        .pipe(dest(path.build.js))
+}
+
+//Minify img and copy to dist directory
 function images() {
     return src(path.src.img)
+        .pipe(imagemin())
         .pipe(dest(path.build.img))
         .pipe(browserSync.stream())
 }
@@ -105,6 +168,13 @@ function images() {
 function fonts() {
     return src(path.src.fonts)
         .pipe(dest(path.build.fonts))
+        .pipe(browserSync.stream())
+}
+
+//Copy php files to dist directory
+function php() {
+    return src(path.src.php)
+        .pipe(dest(path.build.php))
         .pipe(browserSync.stream())
 }
 
@@ -120,20 +190,29 @@ function watchFiles() {
     watch([path.watch.js], js);
     watch([path.watch.img], images);
     watch([path.watch.fonts], fonts);
+    watch([path.watch.php], php);
 }
 
-let build = series(clean, parallel(html, css, js, images, fonts));
+let build = series(clean, parallel(html, css, js, images, fonts, php));
 let taskManager = parallel(build, watchFiles, sync);
+
+let build_production = series(clean, parallel(html, css, js_production, images, fonts, php));
+let production = parallel(build_production, watchFiles, sync);
 
 
 exports.html = html;
 exports.css = css;
 exports.js = js;
+exports.js_production = js_production;
 exports.images = images;
 exports.fonts = fonts;
+exports.php = php;
 exports.clean = clean;
 exports.build = build;
 exports.sync = sync;
 exports.taskManager = taskManager;
+
+exports.build_production = build_production;
+exports.production = production;
 
 exports.default = taskManager;
